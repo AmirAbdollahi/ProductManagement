@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35506.116 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductManagement.API", "ProductManagement.API\ProductManagement.API\ProductManagement.API.csproj", "{6C664F5E-9723-4C66-8033-3A1FB70A9DAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductManagement.Domain", "ProductManagement.Domain\ProductManagement.Domain\ProductManagement.Domain.csproj", "{7489A9C3-B7D8-490D-8859-B8B7B5928590}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductManagement.Application", "ProductManagement.Application\ProductManagement.Application\ProductManagement.Application.csproj", "{7236DF50-9D76-47D6-850E-AA85D8979291}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductManagement.Infrastructure", "ProductManagement.Infrastructure\ProductManagement.Infrastructure\ProductManagement.Infrastructure.csproj", "{69057B79-94F1-47C3-BDBB-F0680C128014}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{03D42AE6-7D8B-42CB-B4D6-16BA2B9FABF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductManagement.UnitTests", "ProductManagement.Tests\UnitTests\ProductManagement.UnitTests\ProductManagement.UnitTests.csproj", "{43F96419-4760-4015-A2D0-15B68E4BE378}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductManagement.IntegrationTests", "ProductManagement.Tests\IntegrationTests\ProductManagement.IntegrationTests\ProductManagement.IntegrationTests.csproj", "{A0701770-2BF5-451B-938D-5F397CB6AEFF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6C664F5E-9723-4C66-8033-3A1FB70A9DAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C664F5E-9723-4C66-8033-3A1FB70A9DAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C664F5E-9723-4C66-8033-3A1FB70A9DAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C664F5E-9723-4C66-8033-3A1FB70A9DAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7489A9C3-B7D8-490D-8859-B8B7B5928590}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7489A9C3-B7D8-490D-8859-B8B7B5928590}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7489A9C3-B7D8-490D-8859-B8B7B5928590}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7489A9C3-B7D8-490D-8859-B8B7B5928590}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7236DF50-9D76-47D6-850E-AA85D8979291}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7236DF50-9D76-47D6-850E-AA85D8979291}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7236DF50-9D76-47D6-850E-AA85D8979291}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7236DF50-9D76-47D6-850E-AA85D8979291}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69057B79-94F1-47C3-BDBB-F0680C128014}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69057B79-94F1-47C3-BDBB-F0680C128014}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69057B79-94F1-47C3-BDBB-F0680C128014}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69057B79-94F1-47C3-BDBB-F0680C128014}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43F96419-4760-4015-A2D0-15B68E4BE378}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43F96419-4760-4015-A2D0-15B68E4BE378}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43F96419-4760-4015-A2D0-15B68E4BE378}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43F96419-4760-4015-A2D0-15B68E4BE378}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0701770-2BF5-451B-938D-5F397CB6AEFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0701770-2BF5-451B-938D-5F397CB6AEFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0701770-2BF5-451B-938D-5F397CB6AEFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0701770-2BF5-451B-938D-5F397CB6AEFF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{43F96419-4760-4015-A2D0-15B68E4BE378} = {03D42AE6-7D8B-42CB-B4D6-16BA2B9FABF3}
+		{A0701770-2BF5-451B-938D-5F397CB6AEFF} = {03D42AE6-7D8B-42CB-B4D6-16BA2B9FABF3}
+	EndGlobalSection
+EndGlobal
