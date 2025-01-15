@@ -46,5 +46,10 @@ namespace ProductManagement.Domain.Entities
             Name = name ?? throw new ArgumentNullException(nameof(name));
             Price = price ?? throw new ArgumentNullException(nameof(price));
         }
+
+        public void ClearSpecifications()
+        {
+            Specifications.Clear();
+        }
     }
 }

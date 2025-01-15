@@ -16,7 +16,7 @@ namespace ProductManagement.Application.Services
 
         public async Task<Guid> CreateProductAsync(CreateProductDto productDto)
         {
-            var price = new Money(productDto.Price, productDto.Currency);
+            var price = new Money(productDto.Price);
             var product = new Product(productDto.Name, price, productDto.ProductCategory);
 
             foreach (var spec in productDto.Specifications)
@@ -37,7 +37,7 @@ namespace ProductManagement.Application.Services
                 throw new Exception("Product not found.");
             }
 
-            var price = new Money(productDto.Price, productDto.Currency);
+            var price = new Money(productDto.Price);
             product.Update(productDto.Name, price);
 
             product.ClearSpecifications();
@@ -61,7 +61,7 @@ namespace ProductManagement.Application.Services
             {
                 Id = product.Id,
                 Name = product.Name,
-                Price = new Money(product.Price);
+                Price = product.Price.Value,
 
                 Specifications = product.Specifications
                     .Select(s => new SpecificationDto { Key = s.Key, Value = s.Value })
@@ -76,7 +76,7 @@ namespace ProductManagement.Application.Services
             {
                 Id = product.Id,
                 Name = product.Name,
-                Price = product.Price,
+                Price = product.Price.Value,
                 Specifications = product.Specifications
                     .Select(s => new SpecificationDto { Key = s.Key, Value = s.Value })
                     .ToList()

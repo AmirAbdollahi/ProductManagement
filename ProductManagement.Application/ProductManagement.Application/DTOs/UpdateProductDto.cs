@@ -12,7 +12,6 @@ namespace ProductManagement.Application.DTOs
         public Guid Id { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
-        public Currency Currency { get; internal set; }
         public List<SpecificationDto> Specifications { get; set; }
     }
 
