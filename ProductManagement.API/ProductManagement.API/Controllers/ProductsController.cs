@@ -21,7 +21,7 @@ namespace ProductManagement.API.Controllers
         public async Task<ActionResult> GetAllProducts()
         {
             var products = await _productService.GetAllProductsAsync();
-            return Ok(products); // Returns 200 OK with list of products
+            return Ok(products); 
         }
 
         // GET: api/products/{id}
@@ -31,9 +31,9 @@ namespace ProductManagement.API.Controllers
             var product = await _productService.GetProductByIdAsync(id);
             if (product == null)
             {
-                return NotFound(); // Returns 404 if product not found
+                return NotFound(); 
             }
-            return Ok(product); // Returns 200 OK with product data
+            return Ok(product);
         }
 
         // POST: api/products
@@ -41,7 +41,7 @@ namespace ProductManagement.API.Controllers
         public async Task<ActionResult> CreateProduct([FromBody] CreateProductDto productDto)
         {
             var productId = await _productService.CreateProductAsync(productDto);
-            return CreatedAtAction(nameof(GetProductById), new { id = productId }, productDto); // Returns 201 Created
+            return CreatedAtAction(nameof(GetProductById), new { id = productId }, productDto); 
         }
 
         // PUT: api/products/{id}
@@ -50,17 +50,17 @@ namespace ProductManagement.API.Controllers
         {
             if (id != productDto.Id)
             {
-                return BadRequest(); // Returns 400 if the product IDs do not match
+                return BadRequest(); 
             }
 
             try
             {
                 await _productService.UpdateProductAsync(productDto);
-                return NoContent(); // Returns 204 No Content if successful
+                return NoContent(); 
             }
             catch (Exception)
             {
-                return NotFound(); // Returns 404 if the product is not found
+                return NotFound(); 
             }
         }
 
@@ -71,11 +71,11 @@ namespace ProductManagement.API.Controllers
             try
             {
                 await _productService.DeleteProductAsync(id);
-                return NoContent(); // Returns 204 No Content if successful
+                return NoContent(); 
             }
             catch (Exception)
             {
-                return NotFound(); // Returns 404 if the product is not found
+                return NotFound(); 
             }
         }
     }

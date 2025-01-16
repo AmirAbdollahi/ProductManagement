@@ -1,5 +1,6 @@
 ﻿using ProductManagement.Domain.Enums;
 using ProductManagement.Domain.ValueObjects;
+using System.Xml.Linq;
 
 namespace ProductManagement.Domain.Entities
 {
@@ -11,11 +12,24 @@ namespace ProductManagement.Domain.Entities
         public ProductCategory Category { get; private set; }
         public List<Specification> Specifications { get; private set; }
 
-        public Product(string name, Money price, ProductCategory category)
+        public Product(string name, decimal price, ProductCategory category)
         {
             Id = Guid.NewGuid();
-            Name = name ?? throw new ArgumentNullException(nameof(name));
-            Price = price ?? throw new ArgumentNullException(nameof(price));
+            Name = name ?? throw new ArgumentNullException(nameof(name), message: "Product name cannot be empty");
+            var thePrice = price <= 0 ? throw new ArgumentNullException(nameof(price), message: "Price must be greater than zero") : price;
+            Price = new Money(thePrice);
+            Category = category;
+            Specifications = new List<Specification>();
+        }
+        
+        public Product(string name, Money price, ProductCategory category)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+                throw new ArgumentNullException(nameof(name), message: "Product name cannot be empty");
+
+            Id = Guid.NewGuid();
+            Name = name;
+            Price = price ?? throw new ArgumentNullException(nameof(price), message: "Price must be greater than zero");
             Category = category;
             Specifications = new List<Specification>();
         }

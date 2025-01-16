@@ -10,5 +10,4 @@ namespace ProductManagement.Application.Interfaces
         Task<Product> GetByIdAsync(Guid id);
         Task<List<Product>> GetAllAsync();
     }
-
 }
