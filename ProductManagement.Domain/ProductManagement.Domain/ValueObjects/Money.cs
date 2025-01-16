@@ -36,5 +36,7 @@ namespace ProductManagement.Domain.ValueObjects
         {
             return $"{Value}";
         }
+
+        public decimal ToDecimal() => Value;
     }
 }

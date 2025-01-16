@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using ProductManagement.Domain.Entities;
+using ProductManagement.Domain.ValueObjects;
 
 
 namespace ProductManagement.Infrastructure.Data
@@ -15,6 +17,9 @@ namespace ProductManagement.Infrastructure.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<Specification>()
+                .HasKey(p => p.SpecificationId);
+
             modelBuilder.Entity<Product>()
                 .HasMany(p => p.Specifications)
                 .WithOne()
@@ -26,10 +31,19 @@ namespace ProductManagement.Infrastructure.Data
                 .HasMaxLength(255);
 
             modelBuilder.Entity<Product>()
-                .Property(p => p.Price.Value)
-                .HasPrecision(18, 2);
+                .Property(p => p.Price)
+                .HasConversion(
+                p => p.Value,
+                v => new Money(v));
 
             SeedData.Seed(modelBuilder);
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.ConfigureWarnings(warnings =>
+                warnings.Ignore(RelationalEventId.PendingModelChangesWarning)
+            );
         }
     }
 }

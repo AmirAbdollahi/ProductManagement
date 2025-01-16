@@ -5,6 +5,7 @@ using ProductManagement.Infrastructure.Services;
 using System;
 using ProductManagement.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Builder;
 
 
 
@@ -38,6 +39,10 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+
+    // Use Swagger if in Development
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
