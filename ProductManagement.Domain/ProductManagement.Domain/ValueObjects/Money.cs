@@ -10,11 +10,8 @@ namespace ProductManagement.Domain.ValueObjects
 
         public Money(decimal value)
         {
-            if (value == 0)
+            if (value <= 0)
                 throw new ArgumentException("Price must be greater than zero.", nameof(value));
-
-            if (value < 0)
-                throw new ArgumentException("Value cannot be negative.", nameof(value));
 
             Value = value;
         }

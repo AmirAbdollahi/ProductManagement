@@ -31,13 +31,13 @@ namespace ProductManagement.Tests.Unit
             var category = ProductCategory.Furniture;
 
             // Act & Assert
-            var exception = Should.Throw<ArgumentException>(() => new Product(name, new Money(price), category));
-            exception.Message.ShouldContain("Price must be greater than zero");
+            var exception = Should.Throw<ArgumentException>(() => new Product(name, price, category));
+            exception.Message.ShouldContain("Value cannot be negative.");
 
             // Test with negative price
             price = -5m;
             exception = Should.Throw<ArgumentException>(() => new Product(name, new Money(price), category));
-            exception.Message.ShouldContain("Price must be greater than zero");
+            exception.Message.ShouldContain("Price must be greater than zero.");
         }
 
         
@@ -70,11 +70,11 @@ namespace ProductManagement.Tests.Unit
 
             // Act & Assert
             var exception = Should.Throw<ArgumentException>(() => product.UpdatePrice(new Money(0)));
-            exception.Message.ShouldContain("Price must be greater than zero");
+            exception.Message.ShouldContain("Price must be greater than zero.");
 
             // Test with negative price
             exception = Should.Throw<ArgumentException>(() => product.UpdatePrice(new Money(-5)));
-            exception.Message.ShouldContain("Price must be greater than zero");
+            exception.Message.ShouldContain("Price must be greater than zero.");
         }
 
         [Fact]

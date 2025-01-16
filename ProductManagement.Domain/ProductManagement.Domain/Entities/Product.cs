@@ -16,7 +16,7 @@ namespace ProductManagement.Domain.Entities
         {
             Id = Guid.NewGuid();
             Name = name ?? throw new ArgumentNullException(nameof(name), message: "Product name cannot be empty");
-            var thePrice = price <= 0 ? throw new ArgumentNullException(nameof(price), message: "Price must be greater than zero") : price;
+            var thePrice = price <= 0 ? throw new ArgumentNullException(nameof(price), message: "Value cannot be negative.") : price;
             Price = new Money(thePrice);
             Category = category;
             Specifications = new List<Specification>();
